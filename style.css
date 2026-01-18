@@ -1,0 +1,235 @@
+/* Importation de la police locale */
+@font-face {
+    font-family: 'Heavitas';
+    src: url('heavitas.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0f0f0f; /* Un noir encore plus profond */
+    color: #ffffff;
+    line-height: 1.6;
+    font-family: 'Segoe UI', sans-serif; /* Police secondaire pour le texte de lecture */
+}
+
+/* On applique Heavitas uniquement aux titres pour garder la lisibilité */
+h1, h2, h3, .logo, .nav-links a, .btn {
+    font-family: 'Heavitas', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: rgba(15, 15, 15, 0.9);
+    backdrop-filter: blur(10px); /* Effet de flou moderne */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-size: 1.2rem;
+    color: #bb86fc;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #bb86fc;
+}
+
+/* Cover Page */
+header {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+                url('bench.jpg'); /* Votre image avec basse exposition */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cover-content h1 {
+    font-size: clamp(2.5rem, 10vw, 6rem);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    line-height: 0.9;
+}
+
+.cover-content p {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.2rem;
+    color: #bb86fc;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 15px 40px;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    border: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #bb86fc;
+    transform: skewX(-10deg); /* Effet stylisé pour le bouton */
+}
+
+/* Sections */
+.section {
+    padding: 100px 10%;
+}
+
+.alt-bg {
+    background-color: #161616;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    border-left: 8px solid #bb86fc;
+    padding-left: 20px;
+}
+
+/* Bio */
+.bio-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.bio-image img {
+    width: 300px;
+    filter: grayscale(100%); /* Look artistique */
+    transition: 0.5s;
+    border: 1px solid #333;
+}
+
+.bio-image img:hover {
+    filter: grayscale(0%);
+}
+
+.bio-text p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.box {
+    background: #222;
+    padding: 25px;
+    margin-top: 20px;
+    border: 1px solid #333;
+}
+
+.box h4 {
+    color: #bb86fc;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+/* Cards / Projects */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: #bb86fc;
+}
+
+.card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+.date {
+    font-family: 'Segoe UI', sans-serif;
+    color: #666;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.btn-small {
+    margin-top: 15px;
+    display: inline-block;
+    color: #bb86fc;
+    text-decoration: none;
+    font-size: 0.8rem;
+    border: 1px solid #bb86fc;
+    padding: 5px 15px;
+}
+
+/* Footer */
+footer {
+    padding: 50px;
+    text-align: center;
+    border-top: 1px solid #333;
+    font-size: 0.8rem;
+    color: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .section-title { font-size: 2rem; }
+}
