@@ -1,7 +1,7 @@
 /* Importation de la police locale */
 @font-face {
     font-family: 'Heavitas';
-    src: url('heavitas.ttf') format('truetype');
+    src: url('Heavitas.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
