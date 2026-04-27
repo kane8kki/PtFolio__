@@ -14,13 +14,12 @@
 }
 
 body {
-    background-color: #0f0f0f; /* Un noir encore plus profond */
+    background-color: #0f0f0f;
     color: #ffffff;
     line-height: 1.6;
-    font-family: 'Segoe UI', sans-serif; /* Police secondaire pour le texte de lecture */
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* On applique Heavitas uniquement aux titres pour garder la lisibilité */
 h1, h2, h3, .logo, .nav-links a, .btn {
     font-family: 'Heavitas', sans-serif;
     letter-spacing: 1px;
@@ -33,7 +32,7 @@ nav {
     align-items: center;
     padding: 15px 5%;
     background-color: rgba(15, 15, 15, 0.9);
-    backdrop-filter: blur(10px); /* Effet de flou moderne */
+    backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
     top: 0;
@@ -72,7 +71,7 @@ header {
     height: 100vh;
     width: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-                url('bench.jpg'); /* Votre image avec basse exposition */
+                url('bench.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -111,7 +110,7 @@ header {
 
 .btn:hover {
     background-color: #bb86fc;
-    transform: skewX(-10deg); /* Effet stylisé pour le bouton */
+    transform: skewX(-10deg);
 }
 
 /* Sections */
@@ -140,7 +139,7 @@ header {
 
 .bio-image img {
     width: 300px;
-    filter: grayscale(100%); /* Look artistique */
+    filter: grayscale(100%);
     transition: 0.5s;
     border: 1px solid #333;
 }
@@ -228,8 +227,133 @@ footer {
     color: #444;
 }
 
+/* ===========================
+   INSPIRATIONS SECTION
+   =========================== */
+
+.inspi-block {
+    margin-bottom: 60px;
+}
+
+/* Label de catégorie (Games / Music / Films) */
+.inspi-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-family: 'Heavitas', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #bb86fc;
+}
+
+.inspi-label i {
+    font-size: 1rem;
+}
+
+/* Grille 4 colonnes */
+.inspi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+}
+
+/* Chaque carte */
+.inspi-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background-image: var(--img);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    cursor: default;
+    border: 1px solid #222;
+    transition: border-color 0.3s;
+}
+
+.inspi-card:hover {
+    border-color: #bb86fc;
+    z-index: 1;
+}
+
+/* Placeholder quand pas d'image */
+.inspi-placeholder {
+    background: #1a1a1a;
+    background-image: none !important;
+}
+
+.inspi-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        #1a1a1a,
+        #1a1a1a 10px,
+        #1f1f1f 10px,
+        #1f1f1f 20px
+    );
+}
+
+/* Overlay au hover */
+.inspi-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.0);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+    transition: background 0.3s ease;
+}
+
+.inspi-card:hover .inspi-overlay {
+    background: rgba(0, 0, 0, 0.78);
+}
+
+/* Nom de l'inspiration */
+.inspi-name {
+    font-family: 'Heavitas', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Type (Ambient, Game, etc.) */
+.inspi-type {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #bb86fc;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease 0.06s, transform 0.3s ease 0.06s;
+    margin-top: 4px;
+}
+
+.inspi-card:hover .inspi-name,
+.inspi-card:hover .inspi-type {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .section-title { font-size: 2rem; }
+    .inspi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .inspi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
